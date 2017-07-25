@@ -1,0 +1,145 @@
+<style type="text/css">
+	#sec_right{
+    float: right;
+    margin-right: 115px;
+    margin-top: -60px;
+}
+#sec_left{
+    width: 199px;
+    height: 70px;
+    margin-left: 10%;
+    /*background: url(images/Login_logo.png) no-repeat 0 0;*/
+  }
+</style>
+
+
+
+
+    <!---Header-->
+<div style="background-color: #fff;height:90px;">
+ <div id="sec_left">
+   <img src="images/Capture.JPG" style="height: 77px;width: 385px;" />
+ </div>
+
+ <div id="sec_right">
+  <img src="images/ibm_blockchain_logo.png" style="height: 51px;width: 172px;" />
+</div>
+</div>
+
+<div style="background:#c50030;height:36px;"  class="row">
+
+   <div class="col-md-8" style="margin-left: 10%;">
+   <span style="float:left;float: left;margin-top: 8px;color: #fff;" ng-click="backtosuccess()" style=""><< Back</a></span>
+   <span style="color: white;padding-left: 42%;padding-top: 5px;font-size: 18px;">{{getrolenaame}}<span>
+   </div>
+
+
+   <div style="padding-top: 5px;width:8%;margin-left:5%;" class="col-md-2"  >
+   <img src="images/log_out.svg" style="width: 28px;cursor: pointer;" ng-click="movetologinpage()"/>
+   <span style="color:white;cursor: pointer;" ng-click="movetologinpage()">Logout</span>
+   </div> 
+
+</div> 
+<!---Header Ends-->
+
+<div style="">
+
+<div ng-cloak="" class="tabsdemoDynamicHeight" style="width: 80%;margin-left: 10%;">
+<md-content>
+<md-tabs md-dynamic-height="" md-border-bottom="">
+
+
+  <md-tab label="Export Documents(Json)">
+  <md-content class="md-padding">
+  	<div  style="border:1px solid black; background-color:#E6EDE4; padding:30px;width:80%;margin-left:10%;"> 
+<b>Contract No:</b>
+<h2>{{contract_no}}</h2>
+<center><h2>Exporter Document</h2></center>
+
+		<b>INVOICE</b>
+		<p>PAYER: {{getinvoicejsonval.PAYER}}<br>
+		PAYEE :{{getinvoicejsonval.AYEE}}<br>
+		TAX_REGISTRY_NO :{{getinvoicejsonval.TAX_REGISTRY_NO}}<br>
+		INVOICE_CODE :{{getinvoicejsonval.INVOICE_CODE}}<br>
+		INVOICE_NUMBER :{{getinvoicejsonval.INVOICE_NUMBER}}<br>
+		PRINTING_NO :{{getinvoicejsonval.PRINTING_NO}}<br>
+		TOTAL_IN_WORDS :{{getinvoicejsonval.TOTAL_IN_WORDS}}<br>
+		TOTAL_IN_FIGURES :{{getinvoicejsonval.TOTAL_IN_FIGURES}}<br>
+		PRINT_NO :{{getinvoicejsonval.PRINT_NO}}<br>
+		ANTI_FORGERY_CODE :{{getinvoicejsonval.ANTI_FORGERY_CODE}}<br>
+		DATE_ISSUED :{{getinvoicejsonval.DATE_ISSUED}}<br>
+		DUE_DATE :{{getinvoicejsonval.DUE_DATE}}<br>
+		SHIPPING_DATE :{{getinvoicejsonval.SHIPPING_DATE}}<br>
+		LC_NUMBER :{{getinvoicejsonval.LC_NUMBER}}<br>
+		DATE_OF_PRESENTATION :{{getinvoicejsonval.DATE_OF_PRESENTATION}}<br>
+		CURRENCY :{{getinvoicejsonval.CURRENCY}}</p>
+		<br>
+
+		<b>Bill of Lading</b>
+		<p> SCAC :{{getbljsonval.SCAC}}<br>
+		BL_NO :{{getbljsonval.BL_NO}}<br>
+		BOOKING_NO :{{getbljsonval.BOOKING_NO}}<br>
+		EXPORT_REFERENCES :{{getbljsonval.EXPORT_REFERENCES}}<br>
+		SVC_CONTRACT:{{getbljsonval.SVC_CONTRACT}}<br>
+		ONWARD_INLAND_ROUTING:{{getbljsonval.ONWARD_INLAND_ROUTING}}<br>
+		SHIPPER_NAME_ADDRESS:{{getbljsonval.SHIPPER_NAME_ADDRESS}}<br>
+		CONSIGNEE_NAME_ADDRESS:{{getbljsonval.CONSIGNEE_NAME_ADDRESS}}<br>
+		VESSEL :{{getbljsonval.VESSEL}}<br>
+		VOYAGE_NO :{{getbljsonval.VOYAGE_NO}}<br>
+		PORT_OF_LOADING :{{getbljsonval.PORT_OF_LOADING}}<br>
+		PORT_OF_DISCHARGE :{{getbljsonval.PORT_OF_DISCHARGE}}<br>
+		PLACE_OF_RECEIPT :{{getbljsonval.PLACE_OF_RECEIPT}}<br>
+		PLACE_OF_DELIVERY :{{getbljsonval.PLACE_OF_DELIVERY}}<br>
+		FREIGHT_AND_CHARGES :{{getbljsonval.FREIGHT_AND_CHARGES}}<br>
+		RATE :{{getbljsonval.RATE}}<br>
+		UNIT :{{getbljsonval.UNIT}}<br>
+		CURRENCY :{{getbljsonval.CURRENCY}}<br>
+		PREPAID :{{getbljsonval.PREPAID}}<br>
+		TOTAL_CONTAINERS_RECEIVED_BY_CARRIER :{{getbljsonval.TOTAL_CONTAINERS_RECEIVED_BY_CARRIER}}<br>
+		CONTAINER_NUMBER :{{getbljsonval.CONTAINER_NUMBER}}<br>
+		PLACE_OF_ISSUE_OF_BL :{{getbljsonval.PLACE_OF_ISSUE_OF_BL}}<br>
+		NUMBER_AND_SEQUENCE_OF_ORIGINAL_BLS :{{getbljsonval.NUMBER_AND_SEQUENCE_OF_ORIGINAL_BLS}}<br>
+		DATE_OF_ISSUE_OF_BL :{{getbljsonval.DATE_OF_ISSUE_OF_BL}}<br>
+		DECLARED_VALUE :{{getbljsonval.DECLARED_VALUE}}<br>
+		SHIPPER_ON_BOARD_DATE :{{getbljsonval.SHIPPER_ON_BOARD_DATE}}<br>
+		SIGNED_BY :{{getbljsonval.SIGNED_BY}}<br>
+		LC_NUMBER :{{getbljsonval.LC_NUMBER}}<br>
+		DATE_OF_PRESENTATION :{{getbljsonval.DATE_OF_PRESENTATION}}<br></p>
+		<br>
+
+
+
+		<b>Packaging List </b>
+		<p> CONSIGNEE_NAME :{{getpackingjsonval.CONSIGNEE_NAME}}<br>
+		CONSIGNEE_ADDRESS :{{getpackingjsonval.CONSIGNEE_ADDRESS}}<br>
+		PACKING_LIST_NO :{{getpackingjsonval.PACKING_LIST_NO}}<br>
+		DATE :{{getpackingjsonval.DATE}}<br>
+		TOTAL_QUANTITY_MTONS :{{getpackingjsonval.TOTAL_QUANTITY_MTONS}}<br>
+		TOTAL_NET_WEIGHT_KGS :{{getpackingjsonval.TOTAL_NET_WEIGHT_KGS}}<br>
+		TOTAL_GROSS_WEIGHT_KGS :{{getpackingjsonval.TOTAL_GROSS_WEIGHT_KGS}}<br>
+		DELIVERY_TERMS :{{getpackingjsonval.DELIVERY_TERMS}}<br>
+		DOCUMENTARY_CREDIT_NUMBER :{{getpackingjsonval.DOCUMENTARY_CREDIT_NUMBER}}<br>
+		METHOD_OF_LOADING :{{getpackingjsonval.METHOD_OF_LOADING}}<br>
+		CONTAINER_NUMBER :{{getpackingjsonval.CONTAINER_NUMBER}}<br>
+		PORT_OF_LOADING :{{getpackingjsonval.PORT_OF_LOADING}}<br>
+		DATE_OF_PRESENTATION :{{getpackingjsonval.DATE_OF_PRESENTATION}}<br></p>
+
+	<span class="col-md-4"></span>
+ 	    
+   <input type="submit" class="btn btn-success" ng-disabled=iacc_btn value="Accept Export Documents" ng-click="accept_ed_form(contract_no)"> 
+   <input type="submit" class="btn btn-danger"  value="Close" ng-click="close_imp_form_view()"> 
+   <input type="submit" class="btn btn-danger" ng-disabled=irej_btn value="Reject" ng-click="reject_ed_form(contract_no)">
+   <input type="submit" class="btn btn-success"  value="Download" ng-click="movetopdfpage()">
+  
+   <br>
+   
+   </div>
+  </md-content>
+  </md-tab>
+
+ 
+</md-tabs>
+</md-content>
+</div>
+<!--  -->
+   </div>

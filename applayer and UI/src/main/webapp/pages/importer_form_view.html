@@ -1,0 +1,137 @@
+<style type="text/css">
+
+  #wrapper{
+  width: 1000px;
+  margin: 0 auto;
+  border: 0px solid red;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  height: 1000px;
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #C0C0C0;
+}
+
+#sec_right{
+    float: right;
+    margin-right: 115px;
+    margin-top: -60px;
+}
+#sec_left{
+    width: 199px;
+    height: 70px;
+    margin-left: 10%;
+    /*background: url(images/Login_logo.png) no-repeat 0 0;*/
+  }
+.tabsdemoDynamicHeight md-content {
+background-color: transparent !important;
+width:80%;
+margin-left:10%; }
+.tabsdemoDynamicHeight md-content md-tabs {
+background: #f6f6f6;
+border: 1px solid #e1e1e1; }
+.tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+background: white; }
+.tabsdemoDynamicHeight md-content h1:first-child {
+margin-top: 0; }
+
+.md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+color: #1f70c4;
+/*background-color: #1f70c4 !important;*/
+}
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar{
+background: black;
+}
+.panel-body  {
+word-break:break-all
+}
+</style>
+
+
+    <!---Header-->
+<div style="background-color: #fff;height:90px;">
+ <div id="sec_left">
+   <img src="images/Capture.JPG" style="height: 77px;width: 385px;" />
+ </div>
+
+ <div id="sec_right">
+  <img src="images/ibm_blockchain_logo.png" style="height: 51px;width: 172px;" />
+</div>
+</div>
+
+<div style="background:#c50030;height:36px;"  class="row">
+
+   <div class="col-md-8" style="margin-left: 10%;">
+   <span style="float:left;float: left;margin-top: 8px;color: #fff;" ng-click="backtosuccess()" style=""><< Back</a></span>
+   <span style="color: white;padding-left: 42%;padding-top: 5px;font-size: 18px;">{{getrolenaame}}<span>
+   </div>
+
+
+   <div style="padding-top: 5px;width:8%;margin-left:5%;" class="col-md-2"  >
+   <img src="images/log_out.svg" style="width: 28px;cursor: pointer;" ng-click="movetologinpage()"/>
+   <span style="color:white;cursor: pointer;" ng-click="movetologinpage()">Logout</span>
+   </div> 
+
+</div> 
+<!---Header Ends-->
+
+
+<div ng-cloak="" class="tabsdemoDynamicHeight" style="">
+<md-content>
+<md-tabs md-dynamic-height="" md-border-bottom="">
+
+  <md-tab label="Create L/C">
+  <md-content class="md-padding">
+
+  <div  style="padding-right:30px;padding-left: 30px;padding-top: 5px;margin:3%;"> 
+
+  <center><h2>Letter of Credit</h2></center>
+  <hr>
+  <b>Contract No:</b>
+  <h4>{{contract_no}}</h4>
+  <lable><b>Status:</b></lable><h4 style="color:#235769">{{statusoflc}}</h4>
+
+
+    <b>Sender:</b> <span>{{imp_form_view.Sender}}</span><br>
+    <b>Receiver :</b> <span>{{imp_form_view.Receiver}} </span><br>
+    <b>Tag27 :</b> <span>{{imp_form_view.Tag27}} </span><br>
+    <b>Tag40A :</b> <span>{{imp_form_view.Tag40A }}</span><br>
+    <b>Tag20 :</b> <span>{{imp_form_view.Tag20 }}</span><br>
+    <b>Tag31C :</b> <span>{{imp_form_view.Tag31C }}</span><br>
+    <b>Tag31D :</b> <span>{{imp_form_view.Tag31D }}</span><br>
+    <b>Tag50 :</b> <span>{{imp_form_view.Tag50 }}</span><br>
+    <b>Tag59 :</b> <span>{{imp_form_view.Tag59 }}</span><br>
+    <b>Tag32B :</b> <span>{{imp_form_view.Tag32B }}</span><br>
+    <b>Tag41A :</b> <span>{{imp_form_view.Tag41A }}</span><br>
+    <b>Tag42C :</b> <span>{{imp_form_view.Tag42C }}</span><br>
+    <b>Tag42D :</b> <span>{{imp_form_view.Tag42D }}</span><br>
+    <b>Tag43P :</b> <span>{{imp_form_view.Tag43P }}</span><br>
+    <b>Tag43T :</b> <span>{{imp_form_view.Tag43T }}</span><br>
+    <b>Tag44A :</b> <span>{{imp_form_view.Tag44A }}</span><br>
+    <b>Tag44B :</b> <span>{{imp_form_view.Tag44B }}</span><br>
+    <b>Tag44E :</b> <span>{{imp_form_view.Tag44E }}</span><br>
+    <b>Tag44F :</b> <span>{{imp_form_view.Tag44F }}</span><br>
+    <b>Tag44C :</b> <span>{{imp_form_view.Tag44C }}</span><br>
+    <b>Tag45A :</b> <span>{{imp_form_view.Tag45A }}</span><br>
+    <b>Tag46A :</b> <span>{{imp_form_view.Tag46A }}</span><br>
+    <b>Tag47A :</b> <span>{{imp_form_view.Tag47A }}</span><br>
+    <b>Tag71B :</b> <span>{{imp_form_view.Tag71B }}</span><br>	
+    <b>Tag48 :</b> <span>{{imp_form_view.Tag48}}</span><br>
+    <b>Tag49 :</b> <span>{{imp_form_view.Tag49}}</span><br>
+    <b>Tag57D :</b> <span>{{imp_form_view.Tag57D }}</span><br></br>
+    <span class="col-md-4"></span>
+		   
+	   
+   <input type="submit" class="btn btn-danger" value="Close" ng-click="close_imp_form_view()" style="float: right;"> 
+   <br>
+   
+   </div>
+  </md-content>
+  </md-tab>
+
+</md-tabs>
+</md-content>
+</div>

@@ -1,0 +1,63 @@
+<style type="text/css">
+  #wrapper{
+  width: 1000px;
+  margin: 0 auto;
+  border: 0px solid red;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  height: 670px;
+}
+.row {
+  display: flex; /* equal height of the children */
+}
+
+.col {
+/*  flex: 1;*/ /* additionally, equal width */
+  
+  padding: 1em;
+  border: solid;
+}
+.login-form{
+  background: #ebebeb;
+    height: 700px;
+    margin:auto;
+    color: #565656 !important;
+    width: 55%;
+    margin-left:45%;
+}
+.form-group {
+    margin-bottom: 6px;
+}
+select , input{
+   color: #565656 !important;
+}
+</style>
+<link rel="icon" href="images/bluemix-logo-2.ico" type="image/x-icon"/>
+<head>
+  <title>Mizuho Blockchain</title>
+</head>
+
+<form  class="login-form"  style="">
+    <div class="login_logo" style="background: url(images/Capture.JPG); height:75px;background-repeat:no-repeat;margin-left:-26%;margin-top:15%;width:44%;"></div>
+
+    <select name="role1" class="role_style" ng-model="role"> 
+    <option  value=""><span>Select Role</span></option>
+    <option value="ImporterBank">Importer Bank</option>
+    <option value="ExporterBank">Exporter Bank</option>
+    <option value="Importer">Importer</option>
+    <option value="Exporter">Exporter</option>
+    <option value="ShippingCompany">Shipping Company</option>
+    <option value="InsuranceCompany">Insurance Company</option>
+    </select>
+
+    <div class="form-group" id="user_field">
+    <input type="text" id="userName" ng-model="username" class="login_txtbox" placeholder="Username" name="userName" ng-minlength="2" ng-maxlength="15" >
+    </div>
+    <div class="form-group" id="password_field"> 
+    <input type="password" class="login_txtbox" ng-model="password" placeholder="Password" id="password" ng-minlength="2" ng-maxlength="15" name="password">
+    </div>
+    <div class="sign_in">
+    <button type="submit" class="btn  signin_btn" ng-click="submitlogin(username,password,role)" >Sign In</button>
+    </div>
+
+    </form>

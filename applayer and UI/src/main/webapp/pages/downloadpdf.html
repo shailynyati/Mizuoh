@@ -1,0 +1,166 @@
+<style type="text/css">
+
+#wrapper{
+  width: 1000px;
+  margin: 0 auto;
+  border: 0px solid red;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  height: 670px;
+}
+	/* Form Progress */
+.progress {
+  /*background-color: #fff;*/
+   /*box-shadow: 0 0 0 0 ;*/
+  margin: 20px auto;
+  text-align: center;
+  overflow: visible;
+  padding-left:-20px;
+  background: #3b5998;
+}
+.progress .circle,
+.progress .bar {
+  display: inline-block;
+  background: #fff;
+  width: 40px; height: 40px;
+  border-radius: 40px;
+  border: 1px solid #d5d5da;
+}
+.progress .bar {
+  position: relative;
+  width: 301px;
+  height: 6px;
+  margin: 0 -5px 30px -5px;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+.progress .circle .label {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 32px;
+  margin-top: 3px;
+  color: #b5b5ba;
+  font-size: 17px;
+}
+.progress .circle .title {
+  color: #b5b5ba;
+  font-size: 13px;
+  line-height: 30px;
+  margin-left: -5px;
+}
+
+/* Done / Active */
+.progress .bar.done,
+.progress .circle.done {
+  background: #eee;
+}
+.progress .bar.active {
+  background: linear-gradient(to right, #EEE 40%, #FFF 60%);
+}
+.progress .circle.done .label {
+  color: #FFF;
+  background: #8bc435;
+  box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+}
+.progress .circle.done .title {
+  color: #444;
+}
+.progress .circle.active .label {
+  color: #FFF;
+  background: #0c95be;
+  box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+}
+.progress .circle.active .title {
+  color: #0c95be;
+}
+#sec_right{
+    float: right;
+    margin-right: 115px;
+    margin-top: -60px;
+}
+#sec_left{
+    width: 199px;
+    height: 70px;
+    margin-left: 10%;
+    /*background: url(images/Login_logo.png) no-repeat 0 0;*/
+  }
+  .tabsdemoDynamicHeight md-content {
+background-color: transparent !important;
+width:80%;
+margin-left:10%; }
+.tabsdemoDynamicHeight md-content md-tabs {
+background: #f6f6f6;
+border: 1px solid #e1e1e1; }
+.tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+background: white; }
+.tabsdemoDynamicHeight md-content h1:first-child {
+margin-top: 0; }
+
+.md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+color: #1f70c4;
+/*background-color: #1f70c4 !important;*/
+}
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar{
+background: black;
+}
+.panel-body  {
+word-break:break-all
+}
+</style>
+
+    <!---Header-->
+<div style="background-color: #fff;height:90px;">
+ <div id="sec_left">
+   <img src="images/Capture.JPG" style="height: 77px;width: 385px;" />
+ </div>
+
+ <div id="sec_right">
+  <img src="images/ibm_blockchain_logo.png" style="height: 51px;width: 172px;" />
+</div>
+</div>
+
+<div style="background:#c50030;height:36px;" class="row">
+
+   <div class="col-md-8" style="margin-left: 10%;">
+   <span style="float:left;float: left;margin-top: 8px;color: #fff;" ng-click="backtosuccess()" style=""><< Back</a></span>
+   <span style="color: white;padding-left: 42%;padding-top: 5px;font-size: 18px;">{{getrolenaame}}<span>
+   </div>
+
+
+   <div style="padding-top: 5px;width:8%;margin-left:5%;" class="col-md-2"  >
+   <img src="images/log_out.svg" style="width: 28px;cursor: pointer;" ng-click="movetologinpage()"/>
+   <span style="color:white;cursor: pointer;" ng-click="movetologinpage()">Logout</span>
+   </div> 
+
+</div>
+<!---Header Ends-->
+
+<div style="">
+<div style="background: white;width:80%;margin-left:10%;margin-top:10%;">
+      <h5>Invoice</h5>
+
+      <div>
+      <a  id='invoiceLnk' download='Invoice.pdf' style="display:none;" />    
+      <a  href="javascript:void(0);" onclick="downloadPDF1();" title='Invoice.pdf'>Click here for Invoice pdf</a>
+      </div>
+
+      <h5>BillofLading</h5>
+
+      <div>
+      <a  id='boldLnk' download='BillOfLading.pdf' style="display:none;" />  
+      <a  href="javascript:void(0)" onclick="downloadPDF2();" title='BillOfLading.pdf'>Click here for Bill_of_Lading pdf</a>
+      </div>
+
+
+      <h5>PackagingList</h5>
+
+      <div>
+      <a  id='plLnk' download='PackagingList.pdf' style="display:none;" />    
+      <a href="javascript:void(0)" onclick="downloadPDF3();" title='PackagingList.pdf'>Click here for Packaging_List pdf</a>
+      </div>
+
+</div>
+</div> 

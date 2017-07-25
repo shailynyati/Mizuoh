@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <display-name>TradeFinanceApplicationServer</display-name>
+    <servlet>
+        <servlet-name>TransactionManager</servlet-name>
+        <servlet-class>wasdev.sample.servlet.TransactionManager</servlet-class>
+        <init-param>
+            <param-name>ENABLE_LOGIN</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ENABLE_HL_LOGIN</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>HL_LOGIN_URL</param-name>
+            <param-value>http://50.97.87.98:8050/registrar</param-value>
+        </init-param>
+        <init-param>
+            <param-name>HL_URL_NO_SEC</param-name>
+            <param-value>http://50.97.87.98:8050/chaincode</param-value>
+        </init-param>
+        <init-param>
+            <param-name>HL_URL_WITH_SEC</param-name>
+            <param-value>http://50.97.87.98:8080/chaincode</param-value>
+        </init-param>
+        <init-param>
+            <param-name>EVENT_MANAGER_SOURCE_WHITELIST</param-name>
+            <param-value>50.97.87.98</param-value>
+        </init-param> 
+        <init-param>
+            <param-name>WAS_URL_PREFIX</param-name>
+            <param-value>https://mizuhobcdev.mybluemix.net/mizuho</param-value>
+        </init-param> 
+    </servlet>
+    <!-- <servlet>
+        <servlet-name>com.ibm.test.TestTransactionManagerLCIssuanceWorkflow</servlet-name>
+        <servlet-class>com.ibm.test.TestTransactionManagerLCIssuanceWorkflow</servlet-class>
+    </servlet> -->
+    <servlet-mapping>
+        <servlet-name>TransactionManager</servlet-name>
+        <url-pattern>/TransactionManager</url-pattern>
+    </servlet-mapping>
+    <!-- <servlet-mapping>
+        <servlet-name>com.ibm.test.TestTransactionManagerLCIssuanceWorkflow</servlet-name>
+        <url-pattern>/TestTransactionManager</url-pattern>
+    </servlet-mapping> -->
+	<listener>
+   		<listener-class>wasdev.sample.servlet.ClientHTTPRequestListener</listener-class>
+	</listener>
+</web-app>

@@ -1,0 +1,531 @@
+ <style type="text/css">
+  .tab{
+    border: 1px solid #C0C4C3; 
+    line-height:60px;
+    background-color: #EBF5F2;
+    color: #95968C;
+    opacity: 0.7; 
+}
+#wrapper{
+  width: 1000px;
+  margin: 0 auto;
+  border: 0px solid red;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.active {  
+  opacity: 1;
+  background-color:#11B888;
+  color:#fff;
+}
+/* text recolor */
+h1, p, a ,h3{
+  color: #4DC9C9;
+}
+
+/* button recolor */
+.nav-pills > li.active > a, .btn-primary {
+  background-color: #6C6C6C !important;
+  // feeling like it's a rounded corners kind of day
+  border-color: #6C6C6C !important;
+  border-radius: 25px; 
+}
+#sec_right{
+    float: right;
+    margin-right: 115px;
+    margin-top: -60px;
+}
+#sec_left{
+    width: 199px;
+    height: 70px;
+    margin-left: 10%;
+    /*background: url(images/Login_logo.png) no-repeat 0 0;*/
+}
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important;
+  width:80%;
+  margin-left:10%; }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+      background: white; }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
+
+.md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+    color: #1f70c4;
+    /*background-color: #1f70c4 !important;*/
+}
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar{
+  background: black;
+}
+ .panel-body  {
+    word-break:break-all
+}
+.nav-pills > li.active > a, .btn-primary{
+  background-color: #E2E2E2 !important;
+}
+.btn-primary {
+    color: #000;
+    border-color: grey;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    user-select: none;
+    background-image: none;
+    /*border: 1px solid transparent;*/
+     border-radius: 0px; 
+}  
+    label{
+        width:252px;
+    }
+    #div1
+    {
+    height: 150px;
+    width: 1116px;
+    margin-left: 0%;
+    margin-top: 5%;
+    }
+    #div2{
+        float:right;
+        
+    }
+    #sel1{
+       /* margin-left: 120px;*/
+    }
+    #l1{
+        width: 150px;
+        color: #565656;
+        padding-top:1%;
+    }
+</style>
+
+
+    <!---Header-->
+<div style="background-color: #fff;height:90px;">
+ <div id="sec_left">
+   <img src="images/Capture.JPG" style="height: 77px;width: 385px;" />
+ </div>
+
+ <div id="sec_right">
+  <img src="images/ibm_blockchain_logo.png" style="height: 51px;width: 172px;" />
+</div>
+</div>
+
+<div style="background:#c50030;height:36px;"  class="row">
+
+   <div class="col-md-8" style="margin-left: 10%;">
+   <span style="float:left;float: left;margin-top: 8px;color: #fff;" ng-click="backtosuccess()" style=""><< Back</a></span>
+   <span style="color: white;padding-left: 42%;padding-top: 5px;font-size: 18px;">{{getrolenaame}}<span>
+   </div>
+
+
+   <div style="padding-top: 5px;width:8%;margin-left:5%;" class="col-md-2"  >
+   <img src="images/log_out.svg" style="width: 28px;cursor: pointer;" ng-click="movetologinpage()"/>
+   <span style="color:white;cursor: pointer;" ng-click="movetologinpage()">Logout</span>
+   </div> 
+
+</div> 
+
+<!---Header Ends-->
+<!--style="background:url(images/Blue_BG.jpg);"-->
+
+<div >
+
+<!--- Navbar Content Ends-->
+
+<div ng-cloak="" class="tabsdemoDynamicHeight">
+    <md-content>
+<md-tabs md-dynamic-height="" md-border-bottom="">
+
+
+  <md-tab label="Export Documents(Json)">
+  <md-content class="md-padding">
+
+
+        <div >    
+<!-- First form -->
+        <div><label >Invoice: <input type="checkbox" ng-model="mustShow1" style="margin-left:20%;"/></label></div><br />
+
+        <form  ng-show="mustShow1"  style="border:1px solid black;background-color:#F0F0F7;padding:30px; border-color: #BDBAB9; padding-left:21px; width:100%;">
+        <br>
+        <b>Contract No:</b>
+        <h2>{{contract_no}}</h2>
+        </br>
+        <center><h4 style="color:#666785"><b>INVOICE FORM</b></h4></center>
+        <br>
+        <label>PAYER: </label>
+        <input type="text"  size="70" ng-model="form.PAYER" style="margin-left: 10%;">
+        <br><br> 
+        <br><br>
+        
+        <label>PAYEE: </label>
+        <input type="text"  size="70" ng-model="form.PAYEE" style="margin-left: 10%;">
+        <br><br> 
+        
+        <label>TAX_REGISTRY_NO:</label>
+        <input type="number" name="Tag27"  size="70" ng-model="form.TAX_REGISTRY_NO" style="margin-left: 10%; width:60.8%" >
+        <br><br>
+        
+        <label>INVOICE_CODE:</label>
+        <input type="number" name="Tag40A"  size="70" ng-model="form.INVOICE_CODE" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+        <label>INVOICE_NUMBER:</label>
+        <input type="number" name="Tag20"  size="70" ng-model="form.INVOICE_NUMBER" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+        <label>PRINTING_NO:</label>
+        <input type="number" name="Tag31C"  size="70" ng-model="form.PRINTING_NO" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+        <label>TOTAL_IN_WORDS:</label>
+        <input type="text" name="Tag31D"  size="70" ng-model="form.TOTAL_IN_WORDS" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>TOTAL_IN_FIGURES:</label>
+        <input type="number" name="Tag50" size="70" ng-model="form.TOTAL_IN_FIGURES" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+        <label>PRINT_NO:</label>
+        <input type="number" name="Tag59"  size="70" ng-model="form.PRINT_NO" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+        <label>ANTI_FORGERY_CODE:</label>
+        <input type="text" name="Tag32B"  size="70" ng-model="form.ANTI_FORGERY_CODE" style="margin-left: 10%;" >
+        <br><br>
+        
+       <label> DATE_ISSUED:</label>
+        <input type="text" name="Tag41A"  size="70" ng-model="form.DATE_ISSUED" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>DUE_DATE:</label>
+        <input type="text" name="Tag42C"   size="70" size="70" ng-model="form.DUE_DATE" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>SHIPPING_DATE:</label>
+        <input type="text" name="Tag42D"  size="70" ng-model="form.SHIPPING_DATE" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>LC_NUMBER:</label>
+        <input type="text" name="Tag43P" size="70" ng-model="form.LC_NUMBER" style="margin-left: 10%;" >
+        <br><br>
+        
+        <label>DATE_OF_PRESENTATION:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.DATE_OF_PRESENTATION" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>CURRENCY:</label>
+        <input type="text" name="Tag44A"  size="70" ng-model="form.CURRENCY" style="margin-left: 10%;">
+        <br><br>
+        
+        <br><br>
+        </form>
+
+<!-- Second form  --> 
+
+        <br></br>
+
+      <div><label>Bill of Lading: <input type="checkbox" ng-model="mustShow2" style="margin-left:5%;"/></label></div><br />
+
+      <form ng-show="mustShow2"  style="border:1px solid black;background-color:#F0F0F7;padding:30px;
+       border-color: #BDBAB9; padding-left:21px; width:100%; ">
+      <br>
+      <center><h4 style="color:#666785"><b>Bill of Lading</b></h4></center>
+      <br>
+        <label>SCAC: </label>
+        <input type="text"  size="70" ng-model="form.SCAC" style="margin-left: 10%;">
+        <br><br> 
+        
+        <label>BL_NO: </label>
+        <input type="number"  size="70" ng-model="form.BL_NO" style="margin-left: 10%;width:60.8%">
+        <br><br> 
+        
+        <label>BOOKING_NO:</label>
+        <input type="number" name="Tag27"  size="70" ng-model="form.BOOKING_NO" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+        <label>EXPORT_REFERENCES:</label>
+        <input type="text" name="Tag40A"  size="70" ng-model="form.EXPORT_REFERENCES" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>SVC_CONTRACT:</label>
+        <input type="text" name="Tag20"  size="70" ng-model="form.SVC_CONTRACT" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>ONWARD_INLAND_ROUTING:</label>
+        <input type="text" name="Tag31C"  size="70" ng-model="form.ONWARD_INLAND_ROUTING" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>SHIPPER_NAME_ADDRESS:</label>
+        <input type="text" name="Tag31D"  size="70" ng-model="form.SHIPPER_NAME_ADDRESS" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>CONSIGNEE_NAME_ADDRESS:</label>
+        <input type="text" name="Tag50" size="70" ng-model="form.CONSIGNEE_NAME_ADDRESS" style="margin-left: 10%;" >
+        <br><br>
+        
+        <label>VESSEL:</label>
+        <input type="text" name="Tag59"  size="70" ng-model="form.VESSEL" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>VOYAGE_NO:</label>
+        <input type="number" name="Tag32B"  size="70" ng-model="form.VOYAGE_NO" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+       <label> PORT_OF_LOADING:</label>
+        <input type="text" name="Tag41A"  size="70" ng-model="form.PORT_OF_LOADING" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>PORT_OF_DISCHARGE:</label>
+        <input type="text" name="Tag42C"   size="70" size="70" ng-model="form.PORT_OF_DISCHARGE" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>PLACE_OF_RECEIPT:</label>
+        <input type="text" name="Tag42D"  size="70" ng-model="form.PLACE_OF_RECEIPT" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>PLACE_OF_DELIVERY:</label>
+        <input type="text" name="Tag43P" size="70" ng-model="form.PLACE_OF_DELIVERY" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>FREIGHT_AND_CHARGES:</label>
+        <input type="number" name="Tag43T"  size="70" ng-model="form.FREIGHT_AND_CHARGES" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+        <label>RATE:</label>
+        <input type="number" name="Tag43T"  size="70" ng-model="form.RATE" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+        <label>UNIT:</label>
+        <input type="number" name="Tag43T"  size="70" ng-model="form.UNIT" style="margin-left: 10%;width:60.8%" >
+        <br><br>
+        
+        <label>CURRENCY:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.CURRENCY" style="margin-left: 10%;">
+        <br><br>
+        
+        <label >PREPAID:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.PREPAID" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>TOTAL_CONTAINERS_RECEIVED_BY_CARRIER:</label>
+        <input type="number" name="Tag43T"  size="70" ng-model="form.TOTAL_CONTAINERS_RECEIVED_BY_CARRIER" style="margin-left: 10%;width:60.8%">
+        <br><br>
+        
+        <label>CONTAINER_NUMBER:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.CONTAINER_NUMBER" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>PLACE_OF_ISSUE_OF_BL:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.PLACE_OF_ISSUE_OF_BL" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>NUMBER_AND_SEQUENCE_OF_ORIGINAL_BLS:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.NUMBER_AND_SEQUENCE_OF_ORIGINAL_BLS" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>DATE_OF_ISSUE_OF_BL:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.DATE_OF_ISSUE_OF_BL" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>DECLARED_VALUE:</label>
+        <input type="number" name="Tag43T"  size="70" ng-model="form.DECLARED_VALUE" style="margin-left: 10%; width:60.8%">
+        <br><br>
+        
+        <label>SHIPPER_ON_BOARD_DATE:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.SHIPPER_ON_BOARD_DATE" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>SIGNED_BY:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.SIGNED_BY" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>LC_NUMBER:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.LC_NUMBER" style="margin-left: 10%;">
+        <br><br>
+        
+        <label>DATE_OF_PRESENTATION:</label>
+        <input type="text" name="Tag43T"  size="70" ng-model="form.DATE_OF_PRESENTATION" style="margin-left: 10%;">
+        <br><br>    
+        <br><br> 
+        </form> 
+
+<!-- Third Form  -->   
+
+                <br></br>
+
+        <div><label>Packaging List: <input type="checkbox" ng-model="mustShow3 "style="margin-left:1%;" /></label></div><br />
+    
+        <br />
+        <form  ng-show="mustShow3"  style="border:1px solid black;background-color:#F0F0F7;padding:30px;  border-color: #BDBAB9; padding-left:21px width:100%;">
+        <br>
+        <center><h4 style="color:#666785"><b>Packaging List</b></h4></center>
+        <br>
+
+        <label>CONSIGNEE_NAME: </label>
+        <input type="text"  size="70" ng-model="form.CONSIGNEE_NAME" style="margin-left: 9%;" >
+        <br><br> 
+        
+        <label>CONSIGNEE_ADDRESS: </label>
+        <input type="text"  size="70" ng-model="form.CONSIGNEE_ADDRESS" style="margin-left: 9%;" >
+        <br><br> 
+        
+        <label>PACKING_LIST_NO:</label>
+        <input type="text" name="Tag27"  size="70" ng-model="form.PACKING_LIST_NO" style="margin-left: 9%;">
+        <br><br>
+        
+        <label>DATE:</label>
+        <input type="text" name="Tag40A"  size="70" ng-model="form.DATE" style="margin-left: 9%;">
+        <br><br>
+        
+        <label>TOTAL_QUANTITY_MTONS:</label>
+        <input type="number" name="Tag20"  size="70" ng-model="form.TOTAL_QUANTITY_MTONS" style="margin-left: 9%; width:61.5%">
+        <br><br>
+        
+        <label>TOTAL_NET_WEIGHT_KGS:</label>
+        <input type="number" name="Tag31C"  size="70" ng-model="form.TOTAL_NET_WEIGHT_KGS" style="margin-left: 9%; width:61.5%">
+        <br><br>
+        
+        <label>TOTAL_GROSS_WEIGHT_KGS:</label>
+        <input type="number" name="Tag31D"  size="70" ng-model="form.TOTAL_GROSS_WEIGHT_KGS" style="margin-left: 9%; width:61.5%">
+        <br><br>
+        
+        <label>DELIVERY_TERMS:</label>
+        <input type="text" name="Tag50" size="70" ng-model="form.DELIVERY_TERMS" style="margin-left: 9%;">
+        <br><br>
+        
+        <label>DOCUMENTARY_CREDIT_NUMBER:</label>
+        <input type="text" name="Tag59"  size="70" ng-model="form.DOCUMENTARY_CREDIT_NUMBER" style="margin-left: 9%;">
+        <br><br>
+        
+        <label>METHOD_OF_LOADING:</label>
+        <input type="text" name="Tag32B"  size="70" ng-model="form.METHOD_OF_LOADING" style="margin-left: 9%;">
+        <br><br>
+        
+       <label>CONTAINER_NUMBER:</label>
+        <input type="text" name="Tag41A"  size="70" ng-model="form.CONTAINER_NUMBER" style="margin-left: 9%;">
+        <br><br>
+        
+        <label>PORT_OF_LOADING:</label>
+        <input type="text" name="Tag42C"   size="70" size="70" ng-model="form.PORT_OF_LOADING" style="margin-left: 9%;">
+        <br><br>
+        
+        <label>PORT_OF_DISCHARGE:</label>
+        <input type="text" name="Tag42D"  size="70" ng-model="form.PORT_OF_DISCHARGE" style="margin-left: 9%;">
+        <br><br>
+        
+        <label>DATE_OF_PRESENTATION:</label>
+        <input type="text" name="Tag43P" size="70" ng-model="form.DATE_OF_PRESENTATION" style="margin-left: 9%;">
+        <br><br>
+        <br>
+       
+      </form>
+
+        <div id="div1">
+
+        <label id="l1">Insurance</label>  <select class="form-control" style="width:270px" id="sel1" ng-model="getinsuranceval">
+        <option value="insurer1">Insurer 1</option>
+        <option value="insurer2">Insurer 2</option>
+        <option value="insurer3">Insurer 3</option>
+        </select>  
+        <br>
+        <label id="l1"><span>Shipping Company</span></label><select class="form-control" style="width:270px" id="sel1" ng-model="getshippingval">
+        <option value="shipfirm1">Shipping 1</option>
+        <option value="shipfirm2">Shipping 2</option>
+        <option value="shipfirm3">Shipping 3</option>
+        </select>    
+
+        </div>
+
+        <div id="div2" >
+        <input type="submit" class="btn btn-success" value="Submit Export Documents" ng-click="submit_ed1(contract_no,getinsuranceval,getshippingval,form)" style="margin-top:2px">
+        <input type="reset" ng-click="firstReset(form)" class="btn btn-danger" ng-disabled=false value="Reset" style="margin-top:2px">
+        </div>
+
+        <br><br>
+        <br>
+        <br>
+        
+        </div>
+
+  </md-content>
+  </md-tab>
+
+  <md-tab label="Export Documents(pdf)">
+  <md-content class="md-padding">
+
+
+        <div>
+            <div style="height:40px;background: #4A5760;">
+            <h4 style="color:#fff;margin-left: 10px;padding-top: 8px;">Upload Documents here</h4>
+            </div>
+
+            <div style="border:1px solid #eaeaea;";>
+
+              <div style="margin-left: 7%;margin-right: 1%;height: 15px;margin-top:5px;">
+                <p style="width: 25%;color:#767676;padding-top: 11px;">Invoice:</p>
+                <button ng-click='click1()' style="float: right;margin-top: -34px;margin-right: 68%;" >Choose File </button>
+                <p style="width: 17%;float: right;margin-top: -30px;margin-right: 40%;">{{invoicefilename}}</p>
+                <!-- <p style="width: 15%;float: right;margin-top: -30px;margin-right: 144px;">{{bolfilesize}}</p> -->
+              </div>
+                <hr>
+               <div style="margin-left: 7%;margin-right: 1%;height: 6px;">
+                <p style="width: 25%;color:#767676;padding-top: 2px;">Bill Of Lading:</p>
+                <button ng-click='click2()' style="float: right;margin-top: -34px;margin-right: 68%;">Choose File </button>
+                <p style="width: 17%;float: right;margin-top: -30px;margin-right: 40%;">{{bolfilename}}</p>
+                <!-- <p style="width: 15%;float: right;margin-top: -30px;margin-right: 144px;;">{{bolfilesize}}</p> -->
+              </div>
+              <hr>
+
+              <div style="margin-left: 7%;margin-right: 1%;height: 25px;">
+                <p style="width: 25%;color:#767676;padding-top: 2px;">Packaging List:</p>
+                <button ng-click='click3()' style="float: right;margin-top: -34px;margin-right: 68%;">Choose File </button>
+                <p style="width: 17%;float: right;margin-top: -30px;margin-right: 40%;">{{plfilename}}</p>
+                <!-- <p style="width: 15%;float: right;margin-top: -30px;margin-right: 144px;">{{plfilesize}}</p> -->
+              </div>
+
+            </div>
+
+             <div id="div1">
+
+        <label id="l1">Insurance</label>  <select class="form-control" style="width:270px" id="sel1" ng-model="getinsuranceval">
+        <option value="insurer1">Insurance 1</option>
+        <option value="insurer2">Insurance 2</option>
+        <option value="insurer3">Insurance 3</option>
+        </select>  
+        <br>
+        <label id="l1"><span>Shipping Company</span></label><select class="form-control" style="width:270px" id="sel1" ng-model="getshippingval">
+        <option value="shipfirm1">Shipping 1</option>
+        <option value="shipfirm2">Shipping 2</option>
+        <option value="shipfirm3">Shipping 3</option>
+        </select>    
+
+        </div>
+
+        <div style="height:60px;margin-top: 2%;">
+        <input type="submit" class=" class="btn btn-success"" value="Submit Export Documents" ng-click="uploadPdf(getinsuranceval,getshippingval)" style="margin-left: 7%;background-color: #62bb69;color: white;" ng-show=upload_btn>
+        <!-- <input type="submit" class=" class="btn btn-success""  value="Submit Export Documents" style="background-color: #62bb69;color: white;" ng-click="submit_ed(contract_no)" ng-show=creat_ed2 > --> 
+        </div>        
+          
+
+        </div>
+
+  </md-content>
+  </md-tab>
+
+ 
+</md-tabs>
+</md-content>
+
+</div>

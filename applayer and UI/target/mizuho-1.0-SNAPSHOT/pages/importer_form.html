@@ -1,0 +1,187 @@
+<style type="text/css">
+  #sec_right{
+    float: right;
+    margin-right: 115px;
+    margin-top: -60px;
+}
+#sec_left{
+    width: 199px;
+    height: 70px;
+    margin-left: 10%;
+    /*background: url(images/Login_logo.png) no-repeat 0 0;*/
+  }
+  input{
+    width:70%;
+  }
+   select{
+    width: 70%; !important
+       height:20px; !important
+    }
+
+</style>
+
+
+
+    <!---Header-->
+<div style="background-color: #fff;height:90px;">
+ <div id="sec_left">
+   <img src="images/Capture.JPG" style="height: 77px;width: 385px;" />
+ </div>
+
+ <div id="sec_right">
+  <img src="images/ibm_blockchain_logo.png" style="height: 51px;width: 172px;" />
+</div>
+</div>
+
+<div style="background:#c50030;height:36px;"  class="row">
+
+   <div class="col-md-8" style="margin-left: 10%;">
+   <span style="float:left;float: left;margin-top: 8px;color: #fff;" ng-click="backtosuccess()" style=""><< Back</a></span>
+   <span style="color: white;padding-left: 42%;padding-top: 5px;font-size: 18px;">{{getrolenaame}}<span>
+   </div>
+
+
+   <div style="padding-top: 5px;width:8%;margin-left:5%;" class="col-md-2"  >
+   <img src="images/log_out.svg" style="width: 28px;cursor: pointer;" ng-click="movetologinpage()"/>
+   <span style="color:white;cursor: pointer;" ng-click="movetologinpage()">Logout</span>
+   </div> 
+
+</div> 
+<!---Header Ends-->
+
+<!-- create l/c form -->
+<div style="">
+
+<form  class="col-md-8"  style="background-color:#EBF0EF;width:80%;margin-left:10%;padding-left: 12%;">
+<center><h3 style="margin-right:10%;">Letter of Credit</h3></center>
+<br>
+  <label>Sender : </label>
+  <input type="text"  size="100" ng-model="imp_form.Sender" >
+  <br><br> 
+  
+  <label>Receiver : </label>
+  <input type="text"  size="70" ng-model="imp_form.Receiver" >
+  <br><br> 
+  
+  <label>Tag27 :</label>
+  <input type="text"   name="Tag27"  size="70" ng-model="imp_form.Tag27" >
+  <br><br>
+  
+  <label>Tag40A :</label>
+  <input type="text"  name="Tag40A"  size="70" ng-model="imp_form.Tag40A">
+  <br><br>
+  
+  <label>Tag20 :</label>
+  <input type="text"  name="Tag20"  size="70"  ng-model="imp_form.Tag20">
+  <br><br>
+  
+  <label>Tag31C :</label>
+  <input type="text" name="Tag31C"  size="70"  ng-model="imp_form.Tag31C">
+  <br><br>
+  
+  <label>Tag31D :</label>
+  <input type="text" name="Tag31D"  size="70" ng-model="imp_form.Tag31D">
+  <br><br>
+  
+  <label>Tag50 :</label>
+    <select name="importerid" ng-model="imp_form.Tag50" >
+       <option></option>
+        <option value="importer1">Importer 1</option>
+        <option value="importer2">Importer 2</option>
+        <option value="importer3">Importer 3</option>
+        <option value="importer4">Importer 4</option>
+        <option value="importer5">Importer 5</option>
+    </select>
+    <br><br>
+    
+  <label>Tag59 :</label>
+    <select name="exporterid" ng-model="imp_form.Tag59">
+        <option></option>
+        <option value="exporter1">Exporter 1</option>
+        <option value="exporter2">Exporter 2</option>
+        <option value="exporter3">Exporter 3</option>
+        <option value="exporter4">Exporter 4</option>
+        <option value="exporter5">Exporter 5</option> 
+    </select>
+  <br><br>
+  
+  <label>Tag32B :</label>
+  <input type="text"   name="Tag32B"  size="70" ng-model="imp_form.Tag32B">
+  <br><br>
+  
+ <label> Tag41A :</label>
+  <input type="text"   name="Tag41A"  size="70" ng-model="imp_form.Tag41A">
+  <br><br>
+  
+  <label>Tag42C :</label>
+  <input type="text" name="Tag42C" 	 size="70" size="70"  ng-model="imp_form.Tag42C">
+  <br><br>
+  
+  <label>Tag42D :</label>
+  <input type="text"  name="Tag42D"  size="70" ng-model="imp_form.Tag42D" >
+  <br><br>
+  
+  <label>Tag43P :</label>
+  <input type="text"  name="Tag43P" size="70" ng-model="imp_form.Tag43P" >
+  <br><br>
+  
+  <label>Tag43T :</label>
+  <input type="text"  name="Tag43T"  size="70"  ng-model="imp_form.Tag43T">
+  <br><br>
+  
+  <label>Tag44A :</label>
+  <input type="text"  name="Tag44A"  size="70" ng-model="imp_form.Tag44A" >
+  <br><br>
+  
+  <label>Tag44B :</label>
+  <input type="text"   name="Tag44B"  size="70" ng-model="imp_form.Tag44B" >
+  <br><br>
+  
+ <label> Tag44E :</label>
+  <input type="text"   name="Tag44E"  size="70" ng-model="imp_form.Tag44E" >
+  <br><br>
+  
+ <label> Tag44F :</label>
+  <input type="text"  name="Tag44F"  size="70" ng-model="imp_form.Tag44F" >
+  <br><br>
+  
+  <label>Tag44C :</label>
+  <input type="text"   name="Tag44C"  size="70" ng-model="imp_form.Tag44C" >
+  <br><br>
+  
+  <label>Tag45A :</label><br>
+  <textarea  rows="2" cols="100" type="text" name="Tag45A" style="margin-top:-2%;width:70%;" ng-model="imp_form.Tag45A" ></textarea>
+  <br><br>
+  
+  <label> Tag46A :</label><br>
+  <textarea rows="2" cols="100" type="text" name="Tag46A"  style="margin-top:-2%;width:70%;" ng-model="imp_form.Tag46A" > </textarea>
+  <br><br>
+  
+  <label>Tag47A :</label><br>
+  <textarea   rows="4" cols="100" type="text" name="Tag47A"  style="margin-top:-2%;width:70%;" ng-model="imp_form.Tag47A"></textarea>
+  <br><br>
+  
+  <label>Tag71B :</label><br>
+  <textarea   rows="4" cols="100" type="text" name="Tag71B"  style="margin-top:-2%;width:70%;" ng-model="imp_form.Tag71B"></textarea>
+  <br><br>
+  
+ <label> Tag48 :</label>
+  <input type="text"  name="Tag48" ng-model="imp_form.Tag48">
+  <br><br>
+  
+  <label>Tag49 :</label>
+  <input type="text"   name="Tag49" ng-model="imp_form.Tag49">
+  <br><br>
+  
+  <label>Tag57D :</label>
+  <input type="text"  name="Tag57D" ng-model="imp_form.Tag57D">
+  <br><br>
+  <br><br> 
+  <span class="col-md-4"></span>
+  <input type="submit" class="btn btn-success" value="Submit" ng-click="submitForm()" style="width:11%;margin-left:28%;">
+   <input type="reset" ng-click="firstReset(form)" class="btn btn-danger" ng-disabled=false value="Reset"  style="width:12%;float: right;margin-left: 0%;margin-right: 14%;"> 
+   <br>
+   </br>
+</form>
+
+</div>

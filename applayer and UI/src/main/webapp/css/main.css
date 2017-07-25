@@ -1,0 +1,182 @@
+.table-striped>tbody>tr:nth-child(odd)>td{
+   background-color:#DDE8F3;
+ }
+ .table-striped>tbody>tr:nth-child(even)>td{
+	 background-color:#F4F7F9; 
+ }
+
+  .table>thead>tr>td{
+	   background-color:#6191C1; 
+	   color:white;
+	   font-weight:bold;
+	   
+  }
+ input[type="text"],{margin-left: 100px;}
+ label{
+float: left;
+width: 120px;
+ }
+ 
+
+ body{
+  height:100%;
+ }
+.tab{
+    
+    border: 1px solid #C0C4C3;
+
+	
+line-height:60px;
+   
+    background-color: #EBF5F2;
+    color: #95968C;
+	opacity: 0.7;
+
+ 
+}
+.active {
+    
+	opacity: 1;
+	background-color:#11B888;
+	color:#fff;
+}
+
+body{
+	/*margin:20px;*/
+}
+.rec_list{
+    color: #000;
+    background-color: #A1D490;
+	height:200px;
+	 padding:20px;
+	 margin:10px;
+	 
+	
+}
+label
+{
+    color:#6B4347;
+}
+td.circle:before {
+  content: attr(data-char);
+  display: block;
+  background: #f00;
+  width: 20px;
+  height: 20px;
+  line-height:40px;
+  text-align:center;
+  vertical-align: middle;
+  border-radius: 50%;
+  margin:0 auto;
+}
+
+
+/****Login Page Styling****/
+.login_bg{
+  /*background-color: #DADADA;*/
+}
+
+.login-form{
+    /*border: 1px solid #ffc626;*/
+    /*background: #fff none repeat scroll 0 0;*/
+    height: 710px;;
+    margin-bottom: 53px;
+    margin-left: 27%;
+    margin-top: 12%;
+    padding: 14px 34px 0px 15px;
+    width: 50%;
+   /* display: inline-block;*/
+    /*border: 1px solid black;*/
+}
+.login_txtbox {
+    border: 0;
+    border-bottom: 1px solid #c50030;
+    color: #ada9b2;
+    height: 41px !important;
+    width: 50% !important;
+    font-size: 15px;  
+    margin-left:27%;
+    background: #ebebeb;
+}
+.signin_btn:hover{
+  background: #c50030;
+    color: #fff;
+}
+.signin_btn{
+background: #c50030;
+border: 0 none;
+border-radius: 2px !important;
+color: #fff;
+font-size: 16px;
+height: 42px;
+width: 50%;
+margin-left: 27%;
+margin-top:1%;
+}
+
+.role_style{
+/* background: #f6f5f4;*/
+background: #ebebeb;
+width: 50%;
+border: 0 none;
+color: #c0c0c0;
+height: 40px;
+border-bottom: 1px solid #c50030;
+margin-left: 27%;
+margin-top: 8%;
+margin-bottom:1%;
+}
+
+/*css for status bar*/
+.completed{
+  color:green;
+}
+#img1{
+    border-radius: 20px;
+    background: #73AD21;
+    padding: 20px;
+    width: 0.001px;
+    height: 0.001px;
+} 
+.status{
+    height: 46px;
+    margin-top: -25px;
+    border: 1px solid red;
+    width: 42%;
+    margin-left: 368px;
+}
+.example{
+  width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 2s, height 4s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s, height 4s;
+}
+.active {
+  background: green;
+}
+.darkCircle{
+  border: 1px solid #000;
+    background-color: white;
+    border-radius: 10px;
+    display: block;
+    height: 15px;
+    margin-top: 5px;
+    width: 15px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.trucker1{
+  background-color: #696969;
+}
+.trucker2{
+  background-color: #009900;
+}
+.login_main_right{
+    background: rgb(235, 235, 235) none repeat scroll 0% 0%;
+    margin-left: 40%;
+    width: 60%;
+    height: 347px;
+    margin-top: -20px;
+}  
+ 

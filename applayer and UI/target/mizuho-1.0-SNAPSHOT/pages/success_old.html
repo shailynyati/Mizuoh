@@ -1,0 +1,174 @@
+<!-- header part -->
+<div class="main_header" id="main_header" style="background: #0376BE">
+  <div class="header_first_sec" style="font-size: 26px;width:13%;">
+    <div class="trade-txt-left" style="color:white;">Trade Finance</div>
+    <div class="trade-txt-right"style="color: white;cursor: pointer; margin-left: 725%;font-size: 17px;width: 34%;margin-top: -17%;" ng-click="logout()">Log out</div>
+  </div>
+  <div class="header_sec_sec" style="font-size: 32px; text-align: -webkit-center">
+    <div class="header-txt" style="margin-top: -12px;"><h1 style="color: white;">Importer Bank</h1></div>
+  </div>
+</div>
+<!-- create l/c documents btn  -->
+<div class="create-loc" ng-controller="successCtrl">
+    <button class="btn btn-danger" type="button" ng-click="callform()">Create L/C + </button>
+</div>
+<!-- sub header -->
+<!-- <div class="sub-header" style="margin-left: 28%;">
+  <div  class="col-md-3 tab"  style="box-shadow: 10px 7px 5px #888888;" ng-click="getlcdocs()"><center><h3><b>L/C Documents</b></h3></center></div> 
+  <div class="col-md-3 tab"  style="box-shadow: 10px 7px 5px #888888;" ng-click="getexportdocs()"><center><h3><b>Export Documents</b></h3></center></div> 
+</div> -->
+<div class="main header" style="background: #ccc; width: 100%; text-align: -webkit-center;"><h2>List Of Contracts</h2></div>
+<div class="main header row" style="background: #ccc; width: 100%;height: 33px;font-weight: bold; padding-top: 5px;font-size: larger;">
+	<div class="main header col-sm-4" style="background-color:#ccc;"><span style="margin-left: 8px">Contract_number<span></div>
+    <div class="main header col-sm-4" style="background-color:#ccc;"><span style="margin-left: 110%;">Documents</span></div>
+   <!--  <div class="main header col-sm-4" style="background-color:#ccc;"><span  style="margin-left: 50%;"></span></div>	 -->
+</div>
+
+<div class="main-data" style="width: 100%; margin-top: 85px;">
+	   <!-- <div  class="col-md-6"> -->
+          			
+			<table class="table table-striped table-inverse" style="margin-top: -85px;">
+            <thead >
+
+			</thead>
+			<tbody>
+			<!-- <tr>
+			<td>Contract-000005</td>
+			<td>
+			 <div class="row"style="float:left;border:1px solid white;    margin-left: 9%; width: 52%;    height: 23px;">
+
+			<div class="col-xs-4"style="    width: 14px;
+										    height: 14px;
+										    background-color: green;
+										    border-radius: 50%;
+										    padding-left: 7px;
+										    margin-left: 26px;
+										    margin-top: 3px;">
+			</div>
+			<div class="col-xs-4" style="    width: 14px;
+										    height: 14px;
+										    background-color: grey;
+										    border-radius: 50%;
+										    margin-left: 59px;
+										    margin-top: 3px;
+										    padding-left: 6px;">
+			</div>
+			<div class="col-xs-4" style="    width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 59px;
+    margin-top: 3px;
+    padding-left: 6px;"></div> 
+			 </div> 
+			 </td>
+			
+
+			<td style="width:17%;">
+			<button class="btn btn-info btn-xs" type="button" style="float: right;cursor: pointer;" >L/C documents</button>
+			<button class="btn btn-info btn-xs" type="button" style="float: right; cursor: pointer;">Export documents</button> 
+			</td>
+</tr>
+
+<tr>
+			<td>Contract-000006</td>
+			<td>
+			 <div class="row"style="float:left;border:1px solid white;    margin-left: 9%; width: 52%;    height: 23px;">
+
+			<div class="col-xs-4"style="    width: 14px;
+										    height: 14px;
+										    background-color: green;
+										    border-radius: 50%;
+										    padding-left: 7px;
+										    margin-left: 26px;
+										    margin-top: 3px;">
+			</div>
+			<div class="col-xs-4" style="    width: 14px;
+										    height: 14px;
+										    background-color: green;
+										    border-radius: 50%;
+										    margin-left: 59px;
+										    margin-top: 3px;
+										    padding-left: 6px;">
+			</div>
+			<div class="col-xs-4" style="    width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 59px;
+    margin-top: 3px;
+    padding-left: 6px;"></div> 
+			 </div> 
+			 </td>
+			
+
+			<td style="width:17%;">
+			<button class="btn btn-info btn-xs" type="button" style="float: right;cursor: pointer;" >L/C documents</button>
+			<button class="btn btn-info btn-xs" type="button" style="float: right; cursor: pointer;">Export documents</button> 
+			</td>
+</tr> -->
+
+<!-- close here
+			 -->
+			<tr ng-repeat="y in listContracts" style="cursor: pointer;" ng-model="listContracts" >
+			
+			<td>{{y}}</td>
+
+<!-- 			<td>
+			 <div class="row"style="float:left;border:1px solid white;    margin-left: 9%; width: 52%;    height: 23px;">
+
+			<div class="col-xs-4"style="    width: 14px;
+										    height: 14px;
+										    background-color: green;
+										    border-radius: 50%;
+										    padding-left: 7px;
+										    margin-left: 26px;
+										    margin-top: 3px;">
+			</div>
+			<div class="col-xs-4" style="    width: 14px;
+										    height: 14px;
+										    background-color: green;
+										    border-radius: 50%;
+										    margin-left: 59px;
+										    margin-top: 3px;
+										    padding-left: 6px;">
+			</div>
+			<div class="col-xs-4" style="    width: 14px;
+    height: 14px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 59px;
+    margin-top: 3px;
+    padding-left: 6px;"></div> 
+			 </div> 
+			 </td> -->
+<!-- 			<ul class="progress-indicator" style="width: 34%;float: right; margin-top: -1%; margin-right: 40%;">
+			<li ng-class="{'completed' : status_name=1}"> <span class="bubble"></span>L/C Status</li>submit/accept/reject
+			<li ng-class="{'completed' : status_name=2}"> <span class="bubble"></span>E/D Status</li>
+			<li ng-class="{'completed' : status_name=3}"> <span class="bubble"></span>Payment Status</li>
+		
+			</ul> -->
+			
+			<!-- <div class="example"  ng-class="{'active': isActive}"> -->
+			<td style="width:17%;">
+			<button class="btn btn-info btn-xs" type="button" style="margin-left:-100%;cursor: pointer;font-size: 16px;width:72%" ng-click="view_lc_form($index)">L/C documents</button>
+			<button class="btn btn-info btn-xs" type="button" style="font-size: 16px; margin-left:18%;cursor: pointer;width:72%" ng-click="view_ed_form($index)" >Export documents</button> 
+			</td>
+
+			<!-- <td>
+				<div class="col-md-3 col-sm-3 col-xs-3" style="width: 25%;margin-left: 47%;">
+				<ul class="list-inline" style="padding-left: 0;margin-left: -5px;list-style: none;">
+					<li data-toggle="tooltip" data-placement="bottom" title="" class="trucker darkCircle  " data-original-title="Shipping confirmed ">&nbsp;</li>
+					<li data-toggle="tooltip" data-placement="bottom" title="" class="portAuthority darkCircle  " data-original-title="Port entry confirmed ">&nbsp;</li>
+					<li data-toggle="tooltip" data-placement="bottom" title="" class="customsAuthority darkCircle  " data-original-title="Customs confirmed  ">&nbsp;</li>
+				</ul>	
+				</div>
+			</td> -->
+			
+			</tr>
+
+
+			</tbody>
+			</table>
+   <!--  </div> -->
+ </div>
