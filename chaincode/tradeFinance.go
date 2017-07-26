@@ -1315,10 +1315,10 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 		exporterName := args[3]
 		importerBankName := args[4]
 		exporterBankName := args[5]
-		importerCert := ""
-		exporterCert := ""
-		importerBankCert := ""
-		exporterBankCert := ""
+		importerCert := []byte("")
+		exporterCert := []byte("")
+		importerBankCert := []byte("")
+		exporterBankCert := []byte("")
 		shippingCompany := ""
 		insuranceCompany := ""
 
