@@ -1309,7 +1309,7 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 			return nil, fmt.Errorf("Incorrect number of arguments. Expecting 10. Got: %d.", len(args))
 		}
 
-		UID := args[0]
+		//		UID := args[0]
 		//lcJSON := args[1]
 		importerName := args[2]
 		exporterName := args[3]
