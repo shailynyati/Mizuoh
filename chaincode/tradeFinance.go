@@ -1310,7 +1310,7 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 		}
 
 		UID := args[0]
-		lcJSON := args[1]
+		//lcJSON := args[1]
 		importerName := args[2]
 		exporterName := args[3]
 		importerBankName := args[4]
