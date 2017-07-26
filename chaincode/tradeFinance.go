@@ -1310,7 +1310,7 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 		}
 
 		//		UID := args[0]
-		//lcJSON := args[1]
+		lcJSON := args[1]
 		importerName := args[2]
 		exporterName := args[3]
 		importerBankName := args[4]
@@ -1325,7 +1325,7 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 		ok, err := stub.InsertRow("BPTable", shim.Row{
 			Columns: []*shim.Column{
 				&shim.Column{Value: &shim.Column_String_{String_: "BP"}},
-				&shim.Column{Value: &shim.Column_String_{String_: "123456789"}},
+				&shim.Column{Value: &shim.Column_String_{String_: "4567891"}},
 				&shim.Column{Value: &shim.Column_String_{String_: "STARTED"}},
 				&shim.Column{Value: &shim.Column_String_{String_: importerName}},
 				&shim.Column{Value: &shim.Column_String_{String_: exporterName}},
@@ -1365,7 +1365,7 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 		}
 
 		return nil, nil
-		//return t.lc.SubmitDoc(stub, []string{UID, lcJSON, ""})
+		return t.lc.SubmitDoc(stub, []string{UID, lcJSON, ""})
 	} else if function == "acceptLC" {
 		if accessControlFlag == true {
 			res, err := t.isCallerExporterBank(stub, []string{args[0]})
