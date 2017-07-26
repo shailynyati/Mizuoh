@@ -1309,7 +1309,8 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 			return nil, fmt.Errorf("Incorrect number of arguments. Expecting 10. Got: %d.", len(args))
 		}
 
-		//		UID := args[0]
+		//UID := args[0]
+		UID := "4567891"
 		lcJSON := args[1]
 		importerName := args[2]
 		exporterName := args[3]
@@ -1325,7 +1326,7 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 		ok, err := stub.InsertRow("BPTable", shim.Row{
 			Columns: []*shim.Column{
 				&shim.Column{Value: &shim.Column_String_{String_: "BP"}},
-				&shim.Column{Value: &shim.Column_String_{String_: "4567891"}},
+				&shim.Column{Value: &shim.Column_String_{String_: UID}},
 				&shim.Column{Value: &shim.Column_String_{String_: "STARTED"}},
 				&shim.Column{Value: &shim.Column_String_{String_: importerName}},
 				&shim.Column{Value: &shim.Column_String_{String_: exporterName}},
