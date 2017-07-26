@@ -1304,7 +1304,8 @@ func (t *TF) crossCheckDocs(args []string) (bool, error) {
 func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 
 	if function == "submitLC" {
-		if len(args) != 10 {
+		//chain code modified by Rahul and shailey to avoid cert error
+		if len(args) < 6 {
 			return nil, fmt.Errorf("Incorrect number of arguments. Expecting 10. Got: %d.", len(args))
 		}
 
