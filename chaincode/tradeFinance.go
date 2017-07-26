@@ -1322,11 +1322,10 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 		shippingCompany := ""
 		insuranceCompany := ""
 
-		// Insert a row
 		ok, err := stub.InsertRow("BPTable", shim.Row{
 			Columns: []*shim.Column{
 				&shim.Column{Value: &shim.Column_String_{String_: "BP"}},
-				&shim.Column{Value: &shim.Column_String_{String_: UID}},
+				&shim.Column{Value: &shim.Column_String_{String_: "123456789"}},
 				&shim.Column{Value: &shim.Column_String_{String_: "STARTED"}},
 				&shim.Column{Value: &shim.Column_String_{String_: importerName}},
 				&shim.Column{Value: &shim.Column_String_{String_: exporterName}},
@@ -1339,7 +1338,25 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 				&shim.Column{Value: &shim.Column_String_{String_: shippingCompany}},
 				&shim.Column{Value: &shim.Column_String_{String_: insuranceCompany}}},
 		})
-
+		// Insert a row
+		/*
+			ok, err := stub.InsertRow("BPTable", shim.Row{
+				Columns: []*shim.Column{
+					&shim.Column{Value: &shim.Column_String_{String_: "BP"}},
+					&shim.Column{Value: &shim.Column_String_{String_: UID}},
+					&shim.Column{Value: &shim.Column_String_{String_: "STARTED"}},
+					&shim.Column{Value: &shim.Column_String_{String_: importerName}},
+					&shim.Column{Value: &shim.Column_String_{String_: exporterName}},
+					&shim.Column{Value: &shim.Column_String_{String_: importerBankName}},
+					&shim.Column{Value: &shim.Column_String_{String_: exporterBankName}},
+					&shim.Column{Value: &shim.Column_Bytes{Bytes: importerCert}},
+					&shim.Column{Value: &shim.Column_Bytes{Bytes: exporterCert}},
+					&shim.Column{Value: &shim.Column_Bytes{Bytes: importerBankCert}},
+					&shim.Column{Value: &shim.Column_Bytes{Bytes: exporterBankCert}},
+					&shim.Column{Value: &shim.Column_String_{String_: shippingCompany}},
+					&shim.Column{Value: &shim.Column_String_{String_: insuranceCompany}}},
+			})
+		*/
 		if err != nil {
 			return nil, fmt.Errorf("Some error")
 		}
@@ -1347,7 +1364,8 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 			return nil, fmt.Errorf("Row already exists")
 		}
 
-		return t.lc.SubmitDoc(stub, []string{UID, lcJSON, ""})
+		return nil, nil
+		//return t.lc.SubmitDoc(stub, []string{UID, lcJSON, ""})
 	} else if function == "acceptLC" {
 		if accessControlFlag == true {
 			res, err := t.isCallerExporterBank(stub, []string{args[0]})
