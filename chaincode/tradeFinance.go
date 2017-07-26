@@ -122,7 +122,7 @@ func (t *TF) Init(stub shim.ChaincodeStubInterface, function string, args []stri
 //Fabric version migration to 0.6
 //func (t *TF) isCaller(stub *shim.ChaincodeStub, certificate []byte) (bool, error) {
 func (t *TF) isCaller(stub shim.ChaincodeStubInterface, certificate []byte) (bool, error) {
-	myLogger.Debugf("Check caller...")
+	// myLogger.Debugf("Check caller...")
 	fmt.Printf("PDD-DBG: Check caller...")
 
 	sigma, err := stub.GetCallerMetadata()
@@ -138,10 +138,10 @@ func (t *TF) isCaller(stub shim.ChaincodeStubInterface, certificate []byte) (boo
 		return false, errors.New("Failed getting binding")
 	}
 
-	myLogger.Debugf("passed certificate [% x]", certificate)
-	myLogger.Debugf("passed sigma [% x]", sigma)
-	myLogger.Debugf("passed payload [% x]", payload)
-	myLogger.Debugf("passed binding [% x]", binding)
+	// myLogger.Debugf("passed certificate [% x]", certificate)
+	// myLogger.Debugf("passed sigma [% x]", sigma)
+	// myLogger.Debugf("passed payload [% x]", payload)
+	// myLogger.Debugf("passed binding [% x]", binding)
 
 	fmt.Printf("PDD-DBG: passed certificate [% x]", certificate)
 	fmt.Printf("PDD-DBG: passed sigma [% x]", sigma)
@@ -154,16 +154,16 @@ func (t *TF) isCaller(stub shim.ChaincodeStubInterface, certificate []byte) (boo
 		append(payload, binding...),
 	)
 	if err != nil {
-		myLogger.Error("Failed checking signature ", err.Error())
+		// myLogger.Error("Failed checking signature ", err.Error())
 		fmt.Printf("PDD-DBG: Failed checking signature %s", err.Error())
 		return ok, err
 	}
 	if !ok {
-		myLogger.Error("Invalid signature")
+		// myLogger.Error("Invalid signature")
 		fmt.Printf("PDD-DBG: Invalid signature")
 	}
 
-	//myLogger.Debug("Check caller...Verified!")
+	//// myLogger.Debug("Check caller...Verified!")
 	//fmt.Printf("PDD-DBG: Check caller...Verified!")
 
 	return ok, err
