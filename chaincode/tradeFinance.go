@@ -1315,10 +1315,10 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 		exporterName := args[3]
 		importerBankName := args[4]
 		exporterBankName := args[5]
-		importerCert := []byte(args[6])
-		exporterCert := []byte(args[7])
-		importerBankCert := []byte(args[8])
-		exporterBankCert := []byte(args[9])
+		importerCert := ""
+		exporterCert := ""
+		importerBankCert := ""
+		exporterBankCert := ""
 		shippingCompany := ""
 		insuranceCompany := ""
 
@@ -1341,10 +1341,10 @@ func (t *TF) Invoke(stub shim.ChaincodeStubInterface, function string, args []st
 		})
 
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("Some error")
 		}
 		if !ok && err == nil {
-			return nil, errors.New("Row already exists.")
+			return nil, fmt.Errorf("Row already exists")
 		}
 
 		return t.lc.SubmitDoc(stub, []string{UID, lcJSON, ""})
