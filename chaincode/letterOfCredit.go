@@ -155,7 +155,7 @@ func (t *LC) ValidateDoc(stub shim.ChaincodeStubInterface, args []string) ([]byt
 func (t *LC) SubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 
 	if len(args) != 3 {
-		return nil, errors.New("Incorrect number of arguments. Expecting 3.")
+		return nil, fmt.Errorf("Incorrect no of argumens 3 required")
 	}
 
 	UID := args[0]
@@ -171,7 +171,7 @@ func (t *LC) SubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byte,
 		return nil, err
 	}
 	if string(res) == "FAILURE" {
-		return nil, errors.New("Document validation failed.")
+		return nil, fmt.Errorf("Document validation failed for some reason")
 	}
 
 	// Insert a row
@@ -180,8 +180,8 @@ func (t *LC) SubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byte,
 			&shim.Column{Value: &shim.Column_String_{String_: "DOC"}},
 			&shim.Column{Value: &shim.Column_String_{String_: UID}},
 			&shim.Column{Value: &shim.Column_Int32{Int32: LCID}},
-			&shim.Column{Value:&shim.Column_String_{String_: isReSubmission}},
-			&shim.Column{Value:&shim.Column_String_{String_: comment}},
+			&shim.Column{Value: &shim.Column_String_{String_: isReSubmission}},
+			&shim.Column{Value: &shim.Column_String_{String_: comment}},
 			&shim.Column{Value: &shim.Column_Bytes{Bytes: docJSON}},
 			&shim.Column{Value: &shim.Column_Bytes{Bytes: docPDF}},
 			&shim.Column{Value: &shim.Column_String_{String_: "SUBMITTED_BY_IB"}},
@@ -189,13 +189,13 @@ func (t *LC) SubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byte,
 	})
 
 	if !ok && err == nil {
-		return nil, errors.New("Document already exists.")
+		return nil, fmt.Errorf("Document already exists")
 	}
 
 	return nil, err
 }
 
-//ResubmitDoc 
+//ResubmitDoc
 func (t *LC) ReSubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 
 	if len(args) != 4 {
@@ -207,7 +207,7 @@ func (t *LC) ReSubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byt
 	docPDF := []byte(args[2])
 	isReSubmission := "true"
 	comment := args[3]
-	
+
 	var columns []shim.Column
 	col1 := shim.Column{Value: &shim.Column_String_{String_: "DOC"}}
 	columns = append(columns, col1)
@@ -215,7 +215,6 @@ func (t *LC) ReSubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byt
 	columns = append(columns, col2)
 	col3 := shim.Column{Value: &shim.Column_Int32{Int32: int32(0)}}
 	columns = append(columns, col3)
-	
 
 	row, err := stub.GetRow("LCTable", columns)
 	if err != nil {
@@ -229,20 +228,16 @@ func (t *LC) ReSubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byt
 
 	rNumb := row.Columns[8].GetInt32()
 
-	
-
 	LCID := rNumb + 1
 
-
-	
 	// Insert a row
 	ok, err := stub.InsertRow("LCTable", shim.Row{
 		Columns: []*shim.Column{
 			&shim.Column{Value: &shim.Column_String_{String_: "DOC"}},
 			&shim.Column{Value: &shim.Column_String_{String_: UID}},
 			&shim.Column{Value: &shim.Column_Int32{Int32: int32(LCID)}},
-			&shim.Column{Value:&shim.Column_String_{String_: isReSubmission}},
-			&shim.Column{Value:&shim.Column_String_{String_: comment}},
+			&shim.Column{Value: &shim.Column_String_{String_: isReSubmission}},
+			&shim.Column{Value: &shim.Column_String_{String_: comment}},
 			&shim.Column{Value: &shim.Column_Bytes{Bytes: docJSON}},
 			&shim.Column{Value: &shim.Column_Bytes{Bytes: docPDF}},
 			&shim.Column{Value: &shim.Column_String_{String_: "RESUBMITTED_BY_IB"}},
@@ -253,9 +248,8 @@ func (t *LC) ReSubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byt
 		return nil, errors.New("Document already exists.")
 	}
 
- 
 	//to update rNumb for main contract
- 
+
 	ok, err = stub.ReplaceRow("LCTable", shim.Row{
 		Columns: []*shim.Column{
 			&shim.Column{Value: &shim.Column_String_{String_: "DOC"}},
@@ -274,8 +268,6 @@ func (t *LC) ReSubmitDoc(stub shim.ChaincodeStubInterface, args []string) ([]byt
 		return nil, errors.New("Document unable to Update.")
 	}
 
-
-
 	return nil, err
 }
 
@@ -291,7 +283,6 @@ func (t *LC) UpdateStatus(stub shim.ChaincodeStubInterface, args []string) ([]by
 	newStatus := args[2]
 	isReSubmission := "false"
 
-
 	// to get recent LCID number
 	var columns []shim.Column
 	col1 := shim.Column{Value: &shim.Column_String_{String_: "DOC"}}
@@ -300,7 +291,6 @@ func (t *LC) UpdateStatus(stub shim.ChaincodeStubInterface, args []string) ([]by
 	columns = append(columns, col2)
 	col3 := shim.Column{Value: &shim.Column_Int32{Int32: int32(0)}}
 	columns = append(columns, col3)
-	
 
 	row, err := stub.GetRow("LCTable", columns)
 	if err != nil {
@@ -312,10 +302,6 @@ func (t *LC) UpdateStatus(stub shim.ChaincodeStubInterface, args []string) ([]by
 		fmt.Errorf("Eror in getting column")
 	}
 	LCID := row.Columns[8].GetInt32()
-
-	
-	
-
 
 	// Get the row pertaining to this UID
 	var columns_2 []shim.Column
@@ -343,8 +329,6 @@ func (t *LC) UpdateStatus(stub shim.ChaincodeStubInterface, args []string) ([]by
 		isReSubmission = "true"
 	}
 
-
-
 	docJSON := row.Columns[5].GetBytes()
 	docPDF := row.Columns[6].GetBytes()
 	currStatus := row.Columns[7].GetString_()
@@ -357,13 +341,13 @@ func (t *LC) UpdateStatus(stub shim.ChaincodeStubInterface, args []string) ([]by
 		stateTransitionAllowed = true
 	} else if currStatus == "SUBMITTED_BY_IB" && newStatus == "REJECTED_BY_EB" {
 		stateTransitionAllowed = true
-	}else if currStatus == "REJECTED_BY_EB" && newStatus == "RESUBMITTED_BY_IB" {
-		stateTransitionAllowed = true 
+	} else if currStatus == "REJECTED_BY_EB" && newStatus == "RESUBMITTED_BY_IB" {
+		stateTransitionAllowed = true
 	} else if currStatus == "RESUBMITTED_BY_IB" && newStatus == "ACCEPTED_BY_EB" {
 		stateTransitionAllowed = true
 	} else if currStatus == "RESUBMITTED_BY_IB" && newStatus == "REJECTED_BY_EB" {
 		stateTransitionAllowed = true
-	}else if currStatus == "SUBMITTED_BY_IB" && newStatus == "PAYMENT_DUE_FROM_IB_TO_EB" {
+	} else if currStatus == "SUBMITTED_BY_IB" && newStatus == "PAYMENT_DUE_FROM_IB_TO_EB" {
 		stateTransitionAllowed = true
 	} else if currStatus == "ACCEPTED_BY_EB" && newStatus == "PAYMENT_DUE_FROM_IB_TO_EB" {
 		stateTransitionAllowed = true
@@ -426,7 +410,6 @@ func (t *LC) GetJSON(stub shim.ChaincodeStubInterface, args []string) ([]byte, e
 	columns = append(columns, col2)
 	col3 := shim.Column{Value: &shim.Column_Int32{Int32: int32(0)}}
 	columns = append(columns, col3)
-	
 
 	row, err := stub.GetRow("LCTable", columns)
 	if err != nil {
@@ -438,8 +421,6 @@ func (t *LC) GetJSON(stub shim.ChaincodeStubInterface, args []string) ([]byte, e
 		fmt.Errorf("Eror in getting column")
 	}
 	LCID := row.Columns[8].GetInt32()
-
-
 
 	// Get the row pertaining to this UID
 	var columns_2 []shim.Column
@@ -517,10 +498,10 @@ func (t *LC) GetPDF(stub shim.ChaincodeStubInterface, args []string) ([]byte, er
 }
 
 // GetStatus () – returns as JSON the Status w.r.t. the UID
-func (t *LC) GetStatus(stub shim.ChaincodeStubInterface, args []string) ([]byte,[]byte, error) {
+func (t *LC) GetStatus(stub shim.ChaincodeStubInterface, args []string) ([]byte, []byte, error) {
 
 	if len(args) != 1 {
-		return nil,nil,  errors.New("Incorrect number of arguments. Expecting 1.")
+		return nil, nil, errors.New("Incorrect number of arguments. Expecting 1.")
 	}
 
 	UID := args[0]
@@ -557,7 +538,7 @@ func (t *LC) GetStatus(stub shim.ChaincodeStubInterface, args []string) ([]byte,
 
 	row, err = stub.GetRow("LCTable", columns_2)
 	if err != nil {
-		return nil,nil,  fmt.Errorf("Error: Failed retrieving document with UID %s. Error %s", UID, err.Error())
+		return nil, nil, fmt.Errorf("Error: Failed retrieving document with UID %s. Error %s", UID, err.Error())
 	}
 
 	// GetRows returns empty message if key does not exist
@@ -565,8 +546,8 @@ func (t *LC) GetStatus(stub shim.ChaincodeStubInterface, args []string) ([]byte,
 		return nil, nil, nil
 	}
 
-	fmt.Println("valuetoshow",row.Columns[7].GetString_() )
- 	
+	fmt.Println("valuetoshow", row.Columns[7].GetString_())
+
 	//return []byte(row.Columns[4].GetString_()), nil
 	return []byte(row.Columns[7].GetString_()), []byte(row.Columns[4].GetString_()), nil
 }
